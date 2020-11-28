@@ -156,6 +156,7 @@
 				<!-- 					href="#">修改已購買課程</a> <a class="collapse-item" href="#">刪除已購買課程</a> -->
 				<!-- 				<div class="collapse-divider"></div> -->
 				<h6 class="collapse-header">我要開課:</h6>
+				<a class="collapse-item" href="<c:url value='/18/cSelectAll.ctrl'/>">課程總覽</a>
 				<a class="collapse-item" href="<c:url value='/18/insertData.ctrl'/>">課程上架</a>
 				<a class="collapse-item" href="<c:url value='/18/DeleteData.ctrl'/>">課程下架</a>
 				<%-- 					<a class="collapse-item" href="<c:url value='/18/UpdateData.ctrl'/>">修改課程資料</a> --%>
