@@ -24,7 +24,12 @@ public class CourseBeanServiceFront {
 	}
 	
 	public CourseFront selectF(String coId) {
-		return cDAOF.selectF(coId);
+		CourseFront courseFront = cDAOF.selectF(coId);
+		byte[] byt = courseFront.getCoAct_Image();
+
+		String encodedString = Base64.encodeBase64String(byt);
+		courseFront.setCoAct_ImageStr(encodedString);
+		return courseFront;
 	}
 
 	public List<CourseFront> selectAllF() {

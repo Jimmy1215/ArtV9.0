@@ -33,9 +33,11 @@ public class CourseBeanControllerFront {
 	@RequestMapping(path = "/18/cCourseDetail.ctrl") //網址 
 	public String productDetail(Model m, @RequestParam(name = "coId") String coId) {
 		// name = "輸入值"
+		System.out.println(coId);
 
-		CourseFront courseFront = cBeanServiceF.selectF(coId);
-		m.addAttribute("cfd", courseFront);
+		CourseFront cos = cBeanServiceF.selectF(coId);
+		m.addAttribute("cfd", cos);
+//		System.out.println(courseFront.getCoAct_ImageStr());
 
 		return IdentityFilter.loginID+"18/18_CourseDetail"; // 欲跳之jsp頁面名字
 	}

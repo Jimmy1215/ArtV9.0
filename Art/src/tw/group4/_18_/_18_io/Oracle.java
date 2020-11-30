@@ -53,6 +53,7 @@ public class Oracle {
 			+ " coend_date				varchar2(64),  " 
 			+ " coend_time				varchar2(64),  "  
 			+ " coact_description		varchar2(300),  "
+			+ " conum			    	number(12,2),  "
 			+ " coact_image				BLOB )";
 			
 	

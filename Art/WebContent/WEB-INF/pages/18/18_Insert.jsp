@@ -43,7 +43,7 @@
 		</div>
 
 		<div class="form-group">
-			<label>課程售價</label> <input type="number" class="form-control"
+			<label>售價</label> <input type="number" class="form-control"
 				name="coPrice">
 		</div>
 
@@ -70,6 +70,11 @@
 		<div class="form-group">
 			<label>簡介說明</label>
 			<textarea id="te" name="coAct_Description" rows="4" cols="50"></textarea>		
+		</div>
+		
+		<div class="form-group">
+			<label>名額</label> <input type="number" class="form-control"
+				name="coNum">
 		</div>
 
 		<div class="form-group">

@@ -24,6 +24,7 @@ public class CourseFront {
 	private String coEnd_Date;
 	private String coEnd_Time;
 	private String coAct_Description;
+	private int coNum;
 	private byte[] coAct_Image;
 	private String coAct_ImageStr;
 	
@@ -36,7 +37,7 @@ public class CourseFront {
 
 
 	public CourseFront(String coId, String coTitle, String coAct_Type, String coAct_Location, String coLocation_Name, int coPrice,
-			String coAct_Date, String coAct_Time, String coEnd_Date,String coEnd_Time, String coAct_Description, byte[] coAct_Image, String coAct_ImageStr) {
+			String coAct_Date, String coAct_Time, String coEnd_Date,String coEnd_Time, String coAct_Description, int coNum, byte[] coAct_Image, String coAct_ImageStr) {
 		super();
 		this.coId = coId;
 		this.coTitle = coTitle;
@@ -49,6 +50,7 @@ public class CourseFront {
 		this.coEnd_Date = coEnd_Date;
 		this.coEnd_Time = coEnd_Time;
 		this.coAct_Description = coAct_Description;
+		this.coNum = coNum;
 		this.coAct_Image = coAct_Image;
 		this.coAct_ImageStr = coAct_ImageStr;
 	}
@@ -165,6 +167,7 @@ public class CourseFront {
 	public void setCoEnd_Time(String coEnd_Time) {
 		this.coEnd_Time = coEnd_Time;
 	}
+	
 
 	@Column(name = "COACT_DESCRIPTION")
 	public String getCoAct_Description() {
@@ -175,6 +178,18 @@ public class CourseFront {
 	public void setCoAct_Description(String coAct_Description) {
 		this.coAct_Description = coAct_Description;
 	}
+	
+	
+	@Column(name = "CONUM")
+	public int getCoNum() {
+		return coNum;
+	}
+
+
+	public void setCoNum(int coNum) {
+		this.coNum = coNum;
+	}	
+	
 
 	@Column(name = "COACT_IMAGE")
 	public byte[] getCoAct_Image() {

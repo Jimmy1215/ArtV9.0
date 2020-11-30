@@ -101,7 +101,7 @@
                                 class="btn btn-info btn-lg btn-block btn-sm">加入購物車</button></div>
                         </form>
                     </div>
-                </div>
+               </div>  
 
             </div>
         </div>

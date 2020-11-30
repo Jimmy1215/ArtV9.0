@@ -78,8 +78,8 @@ public class CourseDataInputCSV {
 					BufferedReader br = new BufferedReader(isr);) {
 				con.setAutoCommit(false);
 				String jdbc_insert_sql = "INSERT INTO Course "
-						+ " (coTitle, coAct_Type,  coAct_Location, coLocation_Name, coPrice, coAct_Date, coAct_Time, coEnd_Date, coEnd_Time, coAct_Description, coAct_Image) "
-						+ " VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+						+ " (coTitle, coAct_Type,  coAct_Location, coLocation_Name, coPrice, coAct_Date, coAct_Time, coEnd_Date, coEnd_Time, coAct_Description, coNum, coAct_Image) "
+						+ " VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 				try (PreparedStatement pstmt = con.prepareStatement(jdbc_insert_sql);) {
 
@@ -104,7 +104,8 @@ public class CourseDataInputCSV {
 						String coEnd_Date = (token[8]);
 						String coEnd_Time = (token[9]);
 						String coAct_Description = (token[10]);
-						String coAct_Image = (token[11]);
+						String coNum = (token[11]);
+						String coAct_Image = (token[12]);
 //						byte[] byt = ImageProcess.fileToByte(token[8].trim());
 						count++;
 
@@ -119,11 +120,12 @@ public class CourseDataInputCSV {
 						pstmt.setString(8, coEnd_Date);
 						pstmt.setString(9, coEnd_Time);
 						pstmt.setString(10, coAct_Description);
+						pstmt.setString(11, coNum);
 												
 						byte[] bt = null ;
 						bt = fileTobyte("WebContent/WEB-INF/pages/images/18/" + coAct_Image) ; //往上找
 					
-						pstmt.setBytes(11, bt);
+						pstmt.setBytes(12, bt);
 
 						pstmt.addBatch();
 						pstmt.executeBatch();
@@ -131,7 +133,7 @@ public class CourseDataInputCSV {
 						
 
 						System.out.println(coId + " " + coTitle + " " + coAct_Type + " " + coAct_Location + " " + coLocation_Name + " "
-								+ coPrice + " " + coAct_Date + " " + coAct_Time + " " + coEnd_Date + " " + coEnd_Time + " " + coAct_Description + " ");
+								+ coPrice + " " + coAct_Date + " " + coAct_Time + " " + coEnd_Date + " " + coEnd_Time + " " + coAct_Description + " " + coNum + " ");
 						System.out.println("-----");
 					}
 

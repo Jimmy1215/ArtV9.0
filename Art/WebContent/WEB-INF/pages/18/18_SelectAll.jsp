@@ -19,6 +19,7 @@
 									<th>結束日期</th>
 									<th>結束時間</th>
 									<th>簡介說明</th>
+									<th>名額</th>
 									<th>課程圖片</th>
 								</tr>
 							</thead>
@@ -35,6 +36,7 @@
 									<th>結束日期</th>
 									<th>結束時間</th>
 									<th>簡介說明</th>
+									<th>名額</th>
 									<th>課程圖片</th>
 								</tr>
 							</tfoot>
@@ -52,6 +54,7 @@
 										<td>${cSelectAllList.coEnd_Date}</td>
 										<td>${cSelectAllList.coEnd_Time}</td>
 										<td>${cSelectAllList.coAct_Description}</td>
+										<td>${cSelectAllList.coNum}</td>
 										<td><img style='display:block; width:64px;height:36px;' src="data:image/jpg;base64, ${cSelectAllList.coAct_ImageStr}" ></td>
 										<form action="<c:url value="/18/UpdateData.ctrl"/>">
 										<td> <input type="submit" name="button" value="修改">
@@ -66,6 +69,7 @@
 										<input type="hidden" name="coEnd_Date" value="${cSelectAllList.coEnd_Date}">
 										<input type="hidden" name="coEnd_Time" value="${cSelectAllList.coEnd_Time}">
 										<input type="hidden" name="coAct_Description" value="${cSelectAllList.coAct_Description}">
+										<input type="hidden" name="coNum" value="${cSelectAllList.coNum}">
 										<input type="hidden" name="coAct_Image" value="${cSelectAllList.coAct_Image}">
 										</td>							
 										</form>

@@ -31,7 +31,15 @@ public class CourseBeanDAOFront {
 	
 	public CourseFront selectF(String coId) {
 		Session session = sessionFactory.getCurrentSession();
-		return session.get(CourseFront.class, coId);
+		
+		System.out.println(coId);
+		Query<CourseFront> query = session.createQuery("From CourseFront where coId="+coId, CourseFront.class);
+		CourseFront courseFront = query.uniqueResult();
+		System.out.println(courseFront.getCoTitle());
+		return courseFront;
+		
+//		System.out.println(((CourseFront)session.get(CourseFront.class, coId)).getCoAct_ImageStr());
+//		return (CourseFront)session.get(CourseFront.class, coId);
 	}
 	
 }

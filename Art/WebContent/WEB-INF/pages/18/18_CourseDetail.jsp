@@ -10,11 +10,10 @@
 			<div class="about-content col-lg-12">
 				<h1 class="text-white">課程個別詳細介紹</h1>
 				<p class="text-white link-nav">
-					<a href="index.html">首頁</a> 
-					<span class="lnr lnr-arrow-right"></span>
-					<a href="<c:url value='/18/cSelectAllFront.ctrl' />">課程總覽</a> 
-					<span class="lnr lnr-arrow-right"></span> 
-					<a href="<c:url value='/18/cCourseDetail.ctrl' />">課程詳細</a>
+					<a href="index.html">首頁</a> <span class="lnr lnr-arrow-right"></span>
+					<a href="<c:url value='/18/cSelectAllFront.ctrl' />">課程總覽</a> <span
+						class="lnr lnr-arrow-right"></span> <a
+						href="<c:url value='/18/cCourseDetail.ctrl' />">${cfd.coTitle}</a>
 				</p>
 			</div>
 		</div>
@@ -22,42 +21,40 @@
 </section>
 <!-- End banner Area -->
 
-<table id="cfTableFD" class="table table-bordered" width="100%"
-	cellspacing="0">
-	<thead>
-		<tr>
-			<th>課程編號</th>
-			<th>課程名稱</th>
-			<th>課程類型</th>
-			<th>上課地址</th>
-			<th>場地名稱</th>
-			<th>售價</th>
-			<th>開始日期</th>
-			<th>開始時間</th>
-			<th>結束日期</th>
-			<th>結束時間</th>
-			<th>簡介說明</th>
-			<th>課程圖片</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<tr>
-				<td>${cfd.coId}</td>
-				<td>${cfd.coTitle}</td>
-				<td>${cfd.coAct_Type}</td>
-				<td>${cfd.coAct_Location}</td>
-				<td>${cfd.coLocation_Name}</td>
-				<td>${cfd.coPrice}</td>
-				<td>${cfd.coAct_Date}</td>
-				<td>${cfd.coAct_Time}</td>
-				<td>${cfd.coEnd_Date}</td>
-				<td>${cfd.coEnd_Time}</td>
-				<td>${cfd.coAct_Description}</td>
-				<td><img style='display:block; width:64px;height:36px;' src="data:image/jpg;base64, ${cfd.coAct_ImageStr}" ></td>		
-		</tr>
-	</tbody>
-</table>
+<div class="">
+	<div>
+		<div>
+			<div>
+				<img style='display: block; width: 64px; height: 36px;'
+					src="data:image/jpg;base64, ${cfd.coAct_ImageStr}">
+			</div>
+			<div>
+				<!--<form action="CoSubmit.ctrl">-->
+				<form action="<c:url value="/18/CoSubmit.ctrl"/>">
+					<h2>${cfd.coId}</h2>
+				    <h2>${cfd.coTitle}</h2>
+					<h4>${cfd.coAct_Type}</h4>
+				    <h4>${cfd.coAct_Location}</h4>
+					<h4>${cfd.coLocation_Name}</h4>
+					<h4>${cfd.coPrice}</h4>
+					<span>請選擇數量<input type="number" min="1" max="${cfd.coNum}" name="orderNum" value="1">
+                            </span>
+                    <div>${cfd.coAct_Date}</div>       
+					<div>${cfd.coAct_Time}</div>
+					<div>${cfd.coEnd_Date}</div>
+					<div>${cfd.coEnd_Time}</div>
+					<div>${cfd.coAct_Description}</div>
+					
+					<input type="hidden" name="coId" value="${cfd.coId}"/>
+					<input type="hidden" name="ordertitle" value="${cfd.coTitle}"/>
+					<input type="hidden" name="orderPrice" value="${cfd.coPrice}"/>
+				    <input type="hidden" name="coAct_ImageStr" value="${cfd.coAct_ImageStr}"/>
+					<div><button type="submit" name="coTitle" value="${cfd.coTitle}">放入購物車</button></div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 <script>
 	$(document).ready(function() {
 		$('#cTableFD').DataTable({
