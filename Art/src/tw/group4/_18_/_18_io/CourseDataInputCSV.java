@@ -50,25 +50,25 @@ public class CourseDataInputCSV {
 
 
 
-//			try {
-//				stmt.executeUpdate(Oracle.getDropTableCourseOrderItems());
-//				System.out.println("Drop CourseOrderItems Table");
-//			} catch (Exception ex) {
-//				ex.printStackTrace();
-//			}
-//			stmt.executeUpdate(Oracle.getCreateCourseOrderItems());
-//			System.out.println("Create CourseOrderItems Table");
+			try {
+				stmt.executeUpdate(Oracle.getDropTableCourseOrderItems());
+				System.out.println("Drop CourseOrderItems Table");
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
 			
 			
-//			try {
-//				stmt.executeUpdate(Oracle.getDropTableCourseOrders());
-//				System.out.println("Drop CourseOrders Table");
-//			} catch (Exception ex) {
-//				ex.printStackTrace();
-//			}
-//			stmt.executeUpdate(Oracle.getCreateCourseOrders());
-//			System.out.println("Create CourseOrders Table");
+			try {
+				stmt.executeUpdate(Oracle.getDropTableCourseOrders());
+				System.out.println("Drop CourseOrders Table");
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			stmt.executeUpdate(Oracle.getCreateCourseOrders());
+			System.out.println("Create CourseOrders Table");
 
+			stmt.executeUpdate(Oracle.getCreateCourseOrderItems());
+			System.out.println("Create CourseOrderItems Table");
 
 			
 			File file = new File("inputCSV/SearchShowAction.csv");

@@ -18,29 +18,28 @@ public class CourseBeanControllerFront {
 	@Autowired
 	private CourseBeanServiceFront cBeanServiceF;
 
-	@RequestMapping(path = "/18/cSelectAllFront.ctrl", method = RequestMethod.GET)
+	@RequestMapping(path = "/18/cSelectAllFront.ctrl", method = RequestMethod.GET) //網址
 	public String processActionSelectAllF(Model m) {
 		List<CourseFront> selectAllF = cBeanServiceF.selectAllF();
 		m.addAttribute("cListF", selectAllF);
 //	    String str =   (String) m.getAttribute("Update");
 //	    m.addAttribute("end1", str);
-//	    System.out.println(str);
-		return IdentityFilter.loginID + "18/18_CustomerSelectAll";
+		return IdentityFilter.loginID + "18/18_CustomerSelectAll"; // jsp名字
 	}
 
 	
 	
 	@RequestMapping(path = "/18/cCourseDetail.ctrl") //網址 
-	public String productDetail(Model m, @RequestParam(name = "coId") String coId) {
+	public String courseDetail(Model m, @RequestParam(name = "coId") String coId) {
 		// name = "輸入值"
-		System.out.println(coId);
-
 		CourseFront cos = cBeanServiceF.selectF(coId);
 		m.addAttribute("cfd", cos);
-//		System.out.println(courseFront.getCoAct_ImageStr());
 
-		return IdentityFilter.loginID+"18/18_CourseDetail"; // 欲跳之jsp頁面名字
+		return IdentityFilter.loginID+"18/18_CourseDetail"; // jsp名字
 	}
+	
+	
+	
 
 	
 	

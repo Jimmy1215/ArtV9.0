@@ -31,7 +31,8 @@ public class CourseBeanServiceFront {
 		courseFront.setCoAct_ImageStr(encodedString);
 		return courseFront;
 	}
-
+	
+	
 	public List<CourseFront> selectAllF() {
 
 		List<CourseFront> list = cDAOF.selectAllF();

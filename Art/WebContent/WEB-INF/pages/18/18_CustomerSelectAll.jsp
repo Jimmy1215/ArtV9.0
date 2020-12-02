@@ -43,17 +43,19 @@
 			<th>課程名稱</th>
 			<th>課程類型</th>
 			<th>課程圖片</th>
+			<th>課程詳細及購買</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<c:forEach var="cSelectAllListF" varStatus="stat" items="${cListF}">
 			<tr>
-				<td>${stat.count}</td>  <!--直接設定編號-->
+				<td>${cSelectAllListF.coId}</td>  <!--直接設定編號${stat.count}-->
 				<td>${cSelectAllListF.coTitle}</td>
 				<td>${cSelectAllListF.coAct_Type}</td>
-				<td><a href="<c:url value='/18/cCourseDetail.ctrl?coId=${cSelectAllListF.coId}' /> "><img style='display: block; width: 320px; height: 180px;'
-					src="data:image/jpg;base64, ${cSelectAllListF.coAct_ImageStr}"></a></td>
+				<td><img style='display: block; width: 320px; height: 180px;'
+					src="data:image/jpg;base64, ${cSelectAllListF.coAct_ImageStr}"></td>
+				<td><a href="<c:url value='/18/cCourseDetail.ctrl?coId=${cSelectAllListF.coId}' /> "><input class='toDetail' type='button' value='查看課程詳細'/></a></td>
 
 			</tr>
 		</c:forEach>

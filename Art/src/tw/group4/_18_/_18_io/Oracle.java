@@ -21,7 +21,7 @@ public class Oracle {
 	
 	private static final String DROP_Table_CourseOrderItems = "DROP TABLE COURSEORDERITEMS";
 
-	private static final String DROP_Table_CourseOrders = "DROP TABLE COURSEORDER";
+	private static final String DROP_Table_CourseOrders = "DROP TABLE COURSEORDERS";
 	
 	public static String getDropTableCourseOrderItems() {
 		return DROP_Table_CourseOrderItems;
@@ -33,55 +33,52 @@ public class Oracle {
 
 	private static final String CREATE_CourseUser = " CREATE TABLE COURSEUSER " 
 			
-			+ "(userid		    	varchar2(20), " 
-			+ " username    		varchar2(32), "
-			+ " password			varchar2(32), " 
-			+ " address 			varchar2(64), "
-			+ " email 				varchar2(64), " 
-			+ " tel  				varchar2(15), "
+			+ "(userid		    	varchar2(25), " 
+			+ " username    		varchar2(36), "
+			+ " password			varchar2(36), " 
+			+ " address 			varchar2(90), "
+			+ " email 				varchar2(60), " 
+			+ " tel  				varchar2(20), "
 			+ " PRIMARY KEY(COURSE_NO))";
 	
 	private static final String CREATE_Course = "CREATE TABLE COURSE " 
 			+ "(coid number generated as identity constraint COURSE_PK primary key, "
-			+ " cotitle			    	varchar2(200), " 
-			+ " coact_type				varchar2(64),  "
-			+ " coact_location			varchar2(200), " 
-			+ " colocation_name			varchar2(200), " 
-			+ " coprice			    	number(12,2),  "
-			+ " coact_date				varchar2(64),  " 
-			+ " coact_time				varchar2(64),  " 
-			+ " coend_date				varchar2(64),  " 
-			+ " coend_time				varchar2(64),  "  
-			+ " coact_description		varchar2(300),  "
-			+ " conum			    	number(12,2),  "
+			+ " cotitle			    	varchar2(120), " 
+			+ " coact_type				varchar2(50),  "
+			+ " coact_location			varchar2(150), " 
+			+ " colocation_name			varchar2(120), " 
+			+ " coprice			    	number(10,2),  "
+			+ " coact_date				varchar2(60),  " 
+			+ " coact_time				varchar2(60),  " 
+			+ " coend_date				varchar2(60),  " 
+			+ " coend_time				varchar2(60),  "  
+			+ " coact_description		varchar2(400),  "
+			+ " conum			    	number(10,2),  "
 			+ " coact_image				BLOB )";
 			
 	
 	private static final String CREATE_CourseCart = "CREATE TABLE COURSECART " 
-			+ "(coid					number(8,2), "
-//			+ " memberID				varchar2(100), " 
+			+ "(coid					number(8,2), " 
 			+ " cotitle				    varchar2(100), " 
-			+ " coprice			    	number(12,2),  " 
-			+ " cocnum			    	number(12,2),  "			
+			+ " coprice			    	number(10,2),  " 
+			+ " cocnum			    	number(10,2),  "			
 			+ " PRIMARY KEY(COId))";
 	
 	
 	
 	private static final String CREATE_CourseOrders = "Create Table COURSEORDERS "
-			+ "(COORDERNO  integer GENERATED as IDENTITY constraint COURSEORDERS_PK primary key, "
-			+ " USERID            varchar2(20), "
-			+ " ADDRESS           varchar2(164), "
-//			+ " BNO               varchar2(20), " 
-//			+ " invoiceTitle      varchar2(72), " 
+			+ "(ORDERNOCO  integer GENERATED as IDENTITY constraint COURSEORDERS_PK primary key, "
+			+ " USERID            varchar2(20),  "
+			+ " CUSTOMERADDRESS   varchar2(90), " 
+			+ " COCOMMENT         varchar2(300), "
 			+ " TOTALAMOUNT       int, " 
 			+ " ORDERDATE         Date "
 			+ " )";
 	
 	private static final String CREATE_CourseOrderItems = "Create TABLE COURSEORDERITEMS "
-			+ "(COORDERID number generated as identity constraint COURSEORDERITEMS_PK primary key, "
-			+ "COORDERNO integer NOT NULL REFERENCES COURSEORDERS (COORDERNO),"
-//			+ " COORDERNO             	int, "
-			+ " COURSETITLECO           varchar2(172), "
+			+ "(ORDERIDCO number generated as identity constraint COURSEORDERITEMS_PK primary key, "
+			+ " ORDERNOCO integer NOT NULL REFERENCES COURSEORDERS (ORDERNOCO),"		
+			+ " COURSETITLECO           varchar2(150), "
 			+ " COURSENUMCO             int, "
 			+ " COURSEPRICECO           varchar2(20) "
 			+ " ) ";

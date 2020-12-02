@@ -25,8 +25,7 @@
 	<div>
 		<div>
 			<div>
-				<img style='display: block; width: 64px; height: 36px;'
-					src="data:image/jpg;base64, ${cfd.coAct_ImageStr}">
+				<img style='display: block; width: 64px; height: 36px;'src="data:image/jpg;base64, ${cfd.coAct_ImageStr}">
 			</div>
 			<div>
 				<!--<form action="CoSubmit.ctrl">-->
@@ -48,7 +47,7 @@
 					<input type="hidden" name="coId" value="${cfd.coId}"/>
 					<input type="hidden" name="ordertitle" value="${cfd.coTitle}"/>
 					<input type="hidden" name="orderPrice" value="${cfd.coPrice}"/>
-				    <input type="hidden" name="coAct_ImageStr" value="${cfd.coAct_ImageStr}"/>
+				    <!-- <input type="hidden" name="coAct_ImageStr" value="${cfd.coAct_ImageStr}"/>-->
 					<div><button type="submit" name="coTitle" value="${cfd.coTitle}">放入購物車</button></div>
 				</form>
 			</div>

@@ -9,16 +9,33 @@
 	<div class="container">
 		<div class="row d-flex align-items-center justify-content-center">
 			<div class="about-content col-lg-12">
-				<h1 class="text-white">尋找您想要的課程</h1>
+				<h1 class="text-white">購物車</h1>
 				<p class="text-white link-nav">
-					<a href="index.html">首頁</a> <span class="lnr lnr-arrow-right"></span>
+					<a href="index.html">首頁</a>
+				    <span class="lnr lnr-arrow-right"></span>
 					<a href="<c:url value='/18/cSelectAllFront.ctrl' />">課程總覽</a>
+					<span class="lnr lnr-arrow-right"></span>
+					<a href="<c:url value='/18/toCoCart.ctrl.ctrl' />">購物車</a>
 				</p>
 			</div>
 		</div>
 	</div>
 </section>
 <!-- End banner Area -->
+
+<script>
+function confirmDelete(n) {  //n=${orderCo.value.coId}
+	if (confirm("您確定要刪除 ? ") ) {
+		document.forms[0].action="<c:url value='/18/deleteCartList.ctrl?coId=" + n +"' />"  
+		//獲取當前頁面第一個表單
+		document.forms[0].method="POST";
+		document.forms[0].submit();  //提交
+	} else {
+	
+	}
+}
+
+</script>
 
 <table id="cTableF" class="table table-bordered" width="100%"
 	cellspacing="0">
@@ -56,7 +73,7 @@ items:Object型別、多元素的集合，數據來源-->
 				type:參數有三種，分別是number(數字)，currency(貨幣)及percent(百分比) -->
 			<td><fmt:formatNumber value="${orderCo.value.coNum * orderCo.value.coPrice}"
 					type="number" />元</td>
-			<td><input type="button" value="刪除本商品"
+			<td><input type="button" value="刪除本課程"
 				onclick="confirmDelete(${orderCo.value.coId})"></td>
 		</tr>
 	</c:forEach>
@@ -65,6 +82,10 @@ items:Object型別、多元素的集合，數據來源-->
 		<td colspan="3">總計：<fmt:formatNumber value="${ccc.total}"
 				type="number" />元
 		</td>
+		<td colspan="3"><a
+				href="<c:url value='/18/SubmitCartCo.ctrl' />"
+				onClick="return Checkout(${carList.subtotal});">送出訂單</a></td>
+		
 	</tr>
 	
 </table>

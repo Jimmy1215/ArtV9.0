@@ -4,9 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-import tw.group4._14_.back.ARTProduct;
-import tw.group4._18_.seller.model.Course;
-
 public class CourseCartCo {
 
 	private Map<String, CourseFront> cart = new LinkedHashMap<>();
@@ -60,11 +57,11 @@ public class CourseCartCo {
 	public int deleteCart(String coId) {
 		System.out.println("前往刪除");
 		if (cart.get(coId) != null) {
-			System.out.println("找到刪除物件");
+			System.out.println("找到");
 			cart.remove(coId);
 			return 1;
 		} else {
-			System.out.println("找不到刪除物件");
+			System.out.println("沒找到");
 			return 0;
 		}
 	}
@@ -94,6 +91,7 @@ public class CourseCartCo {
 //		cart.clear();
 //		total = 0;
 //	}
+	
 	
 	
 }
